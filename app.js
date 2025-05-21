@@ -104,7 +104,9 @@ app.post("/login", async (req, res) => {
         if (result) {
           const token = jwt.sign({ email: req.body.email }, "hgqwdhgjjqgj");
           res.cookie("token", token);
-          return res.send("Login successful. Redirecting to profile...");
+          // return res.send({name:user?.name, email:user?.email});
+          return res.json({ name: user?.name, email: user?.email });
+
         } else {
           return res.status(401).send("Invalid email or password");
         }
