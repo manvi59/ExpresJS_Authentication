@@ -121,6 +121,17 @@ app.post("/login", async (req, res) => {
  });
 
 
+app.get("/verify", (req, res) => {
+  const token = req.cookies.token;
+  if (!token) return res.status(401).send("No token");
+
+  try {
+    const decoded = jwt.verify(token, "your_jwt_secret");
+    return res.status(200).json(decoded);
+  } catch (err) {
+    return res.status(401).send("Invalid token");
+  }
+});
 
  
 
