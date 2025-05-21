@@ -1,3 +1,4 @@
+require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const express = require("express");
 const path = require("path");
@@ -45,8 +46,8 @@ app.post("/create", (req, res) => {
 
       const token = jwt.sign({ email }, "hgqwdhgjjqgj");
       res.cookie("token", token);
-      res.send(createdUser);
-    });
+      res.send("user singup successfully");
+     });
   });
 });
 
