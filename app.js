@@ -126,7 +126,7 @@ app.get("/verify", (req, res) => {
   if (!token) return res.status(401).send("No token");
 
   try {
-    const decoded = jwt.verify(token, "your_jwt_secret");
+    const decoded = jwt.verify(token, "hgqwdhgjjqgj");
     return res.status(200).json(decoded);
   } catch (err) {
     return res.status(401).send("Invalid token");
