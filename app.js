@@ -194,6 +194,11 @@ app.post("/create", (req, res) => {
   });
 });
 
+app.get("/login", (req, res) => {
+  res.render("login.ejs");
+});
+
+
 app.post("/login", async (req, res) => {
   try {
     const user = await userModel.findOne({ email: req.body.email });
