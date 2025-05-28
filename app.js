@@ -335,12 +335,12 @@ app.post("/login", async (req, res) => {
       if (err) return res.status(500).send("Internal server error");
 
       if (result) {
-        // ✅ Token expires  
+        // ✅ Token expires in 1 hour
         const token = jwt.sign(
           { email: user.email },
           JWT_SECRET,
-          // { expiresIn: '1h' }
-           { expiresIn: '2d' }
+          { expiresIn: '1h' }
+          //  { expiresIn: '2d' }
         );
 
         return res.json({
